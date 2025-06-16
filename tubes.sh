@@ -264,19 +264,23 @@ while true; do
     case $pilihan in
         1) 
             informasi_jaringan
+            # PERBAIKAN: Dapatkan lebar terminal ke variabel dulu
+            lebar_prompt=$(tput cols 2>/dev/null || echo 80)
             # Ini untuk menjeda layar hingga pengguna menekan sebuah tombol.
-            printf "\n%*s" $(( ( (tput cols 2>/dev/null || echo 80) - 38 ) / 2 )) ""
+            printf "\n%*s" $(( (lebar_prompt - 38) / 2 )) ""
             read -n 1 -s -r -p "Tekan tombol apa saja untuk kembali..."
             ;;
         2) 
             informasi_user
-            printf "\n%*s" $(( ( (tput cols 2>/dev/null || echo 80) - 38 ) / 2 )) ""
+            # PERBAIKAN: Dapatkan lebar terminal ke variabel dulu
+            lebar_prompt=$(tput cols 2>/dev/null || echo 80)
+            printf "\n%*s" $(( (lebar_prompt - 38) / 2 )) ""
             read -n 1 -s -r -p "Tekan tombol apa saja untuk kembali..."
             ;;
         3) 
             # Ini untuk keluar dari program.
             clear
-            tampilkan_judul "XIE XIE BANG"
+            tampilkan_judul "XIE XIE YA!"
             sleep 2
             clear
             exit 0
@@ -292,7 +296,9 @@ while true; do
                 echo "   Pilihan '$pilihan' tidak valid! Silakan coba lagi."
             fi
             echo ""
-            printf "%*s" $(( ( (tput cols 2>/dev/null || echo 80) - 38 ) / 2 )) ""
+            # PERBAIKAN: Dapatkan lebar terminal ke variabel dulu
+            lebar_prompt=$(tput cols 2>/dev/null || echo 80)
+            printf "%*s" $(( (lebar_prompt - 38) / 2 )) ""
             read -n 1 -s -r -p "Tekan tombol apa saja untuk lanjut..."
             ;;
     esac
