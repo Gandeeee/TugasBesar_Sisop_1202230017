@@ -42,6 +42,8 @@
 > Skrip ini adalah sebuah *dashboard* berbasis terminal yang menyediakan akses cepat ke berbagai metrik dan data sistem. Dengan antarmuka menu yang mudah dinavigasi, pengguna dapat melihat informasi mulai dari sapaan selamat datang, detail jaringan, status sistem operasi, hingga informasi pengguna, semuanya disajikan dalam tabel yang rapi dan berwarna untuk keterbacaan yang lebih baik.
 
 ---
+![image](https://github.com/user-attachments/assets/ba7e2bf7-3e16-43f0-bd7c-da628f5f9c95)
+
 
 ### **Fitur Program** <a name="fitur-program-rocket"></a>
 
@@ -50,12 +52,15 @@ Berikut adalah penjelasan untuk setiap menu yang tersedia dalam program ini:
 #### **1. 👋 Greeting User**
 Menu ini memberikan sapaan hangat kepada pengguna yang disesuaikan dengan waktu (Pagi, Siang, Sore, Malam). Selain itu, menu ini juga menampilkan rangkuman informasi dasar seperti tanggal, waktu, dan info kalender dalam format tabel yang jelas.
 
-> *\[Tempat untuk gambar menu Greeting User\]*
+![image](https://github.com/user-attachments/assets/98e91cd7-9113-4738-a7f3-3695245b8114)
+
+
 
 #### **2. 📁 Info Daftar Direktori**
 Fitur ini berfungsi seperti perintah `ls -l` yang ditingkatkan. Ia menampilkan seluruh isi dari direktori tempat skrip dijalankan dalam sebuah tabel detail, lengkap dengan hak akses, pemilik, ukuran, tanggal modifikasi, dan nama file/direktori. Direktori dan file yang bisa dieksekusi diberi warna berbeda untuk identifikasi yang lebih mudah.
 
-> *\[Tempat untuk gambar menu Info Daftar Direktori\]*
+![image](https://github.com/user-attachments/assets/ae7d9e0d-53ea-4258-9688-c707522288f5)
+
 
 #### **3. 🌐 Info Jaringan**
 Ini adalah menu paling komprehensif untuk analisis jaringan. Fitur ini menampilkan:
@@ -64,22 +69,23 @@ Ini adalah menu paling komprehensif untuk analisis jaringan. Fitur ini menampilk
 * Daftar semua alamat IP lokal beserta Netmask/CIDR-nya.
 * Status detail setiap *interface* jaringan (UP/DOWN), kecepatan link, dan alamat MAC.
 
-> *\[Tempat untuk gambar menu Info Jaringan\]*
+![image](https://github.com/user-attachments/assets/e9557d8f-d6b5-400d-938e-9805b35c3179)
+
 
 #### **4. 💻 Info OS**
 Menampilkan rangkuman teknis dari sistem operasi yang sedang berjalan. Informasi yang disajikan meliputi nama distro, versi kernel, arsitektur, penggunaan CPU *real-time* (user, system, idle), serta tabel penggunaan Memori (RAM) dan Swap.
 
-> *\[Tempat untuk gambar menu Info OS\]*
+![image](https://github.com/user-attachments/assets/60d52ffd-416b-4cfd-ba21-b883612f6e13)
 
 #### **5. ⏳ Waktu Install OS**
 Fitur unik yang mencoba mendeteksi kapan sistem operasi ini pertama kali diinstal. Skrip akan mencoba beberapa metode, seperti memeriksa log installer atau waktu pembuatan partisi, untuk memberikan perkiraan tanggal instalasi yang akurat. Selain itu, menu ini juga menampilkan waktu boot terakhir dan durasi sistem telah berjalan (*uptime*).
 
-> *\[Tempat untuk gambar menu Waktu Install OS\]*
+![image](https://github.com/user-attachments/assets/8b90ffaf-dc6d-4102-8841-217773005e65)
 
 #### **6. 👤 Info User**
 Menyediakan semua detail terkait pengguna yang sedang login, termasuk nama pengguna, UID, GID, daftar grup, direktori home, shell yang digunakan, dan total penggunaan disk pada direktori `/home`. Menu ini juga menampilkan sesi login yang sedang aktif dan 5 riwayat login terakhir.
 
-> *\[Tempat untuk gambar menu Info User\]*
+![image](https://github.com/user-attachments/assets/3739c4a3-5c8b-49b5-ba0e-142a2e8f3166)
 
 ---
 
@@ -129,6 +135,8 @@ Skrip ini memanfaatkan beberapa *command-line tools* bawaan Linux untuk mengumpu
 ### **Kesimpulan** <a name="kesimpulan-memo"></a>
 
 Program ini menunjukkan bagaimana *shell scripting* Bash dapat digunakan untuk membuat alat bantu sistem yang fungsional, informatif, dan menarik secara visual. Dengan menggabungkan berbagai perintah Linux dan memformat outputnya, skrip ini menjadi sebuah *dashboard* mini yang sangat berguna untuk memantau kondisi sistem secara cepat dan efisien.
+![image](https://github.com/user-attachments/assets/cd54b3c8-317c-4d49-bae7-859ad9f7aeaa)
+
 
 IT SOLID!
 
