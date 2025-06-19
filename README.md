@@ -1,92 +1,135 @@
-# 📝 Tugas Besar Sistem Operasi
-### 1202230017 - Kadek Gandhi Wahyu Jaya Suastika
+<h1 align="center">
+  🖥️ Program Informasi Sistem Berbasis Bash 🖥️
+</h1>
 
-![Tugas: Sistem Operasi](https://img.shields.io/badge/Tugas-Sistem%20Operasi-blue?style=for-the-badge&logo=linux-terminal)
-![Universitas: Telkom Surabaya](https://img.shields.io/badge/Universitas-Telkom%20Surabaya-red?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCAxNzIgMTcyIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWNhcD0iYnV0dCIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtZGFzaGFycmF5PSIiIHN0cm9rZS1kYXNob2Zmc2V0PSIwIiBmb250LWZhbWlseT0ibm9uZSIgZm9udC13ZWlnaHQ9Im5vbmUiIGZvbnQtc2l6ZT0ibm9uZSIgdGV4dC1hbmNob3I9Im5vbmUiIHN0eWxlPSJtaXhlLWJsZW5kLW1vZGU6IG5vcm1hbCI+PHBhdGggZD0iTTAsMTcydi0xNzJoMTcydjE3MnoiIGZpbGw9Im5vbmUiPjwvcGF0aD48ZyBmaWxsPSIjZmZmZmZmIj48cGF0aCBkPSJNNzEuNjgsMjEuNWMtMy4xNTQyNSwwIC01LjcxNjY3LDIuNTYyNDIgLTUuNzE2NjcsNS43MTY2N3YxMTAuOTgzMzNjMCwzLjE1NDI1IDIuNTYyNDIsNS43MTY2NyA1LjcxNjY3LDUuNzE2NjdjMy4xNTQyNSwwIDUuNzE2NjcsLTIuNTYyNDIgNS43MTY2NywtNS43MTY2N3YtMTEwLjk4MzMzYzAsLTMuMTU0MjUgLTIuNTYyNDIsLTUuNzE2NjcgLTUuNzE2NjcsLTUuNzE2Njd6TTM1Ljg0LDUwLjE2NjY3Yy0yLjA5NjI1LDAgLTMuOTQ3NzUsMS4yMjMyNSAtNC44MzMyNSwzLjExMTQybC0xMS40MTY2NywyMy45NzVjLTEuNTM3NSwzLjIzMTc1IC0wLjQ4NTI1LDcuMjAzNSA1LjcxNjY3LDcuMjAzNWgxNS4yNDMzM2M1LjYyNDUsMCA4LjU1ODUsLTQuNjMyNSA1LjcxNjY3LC03LjIwMzVsLTExLjQxNjY3LC0yMy45NzVjLTAuODg1NSwtMS44ODgxNyAtMi43Mzc1LC0zLjExMTQyIC00LjgzMzI1LC0zLjExMTQyeiBNMTA3LjUsNTEuNWMtMjMuODUxMjUsMCAtNDMuLDExLjgyMzUgLTQzLDM0LjVjMCwyMi42NzY1IDIxLjE2NjUsMzQuNSA0MywzNC41YzIxLjgzMzUsMCA0MywtMTEuODIzNSA0MywtMzQuNWMwLC0yMC42MjUgLTE3LjM3NSwtMzQuNSAtNDMsLTM0LjV6TTEwNy41LDYyLjgzMzMzYzE0LjI1ODUsMCAyMS41LDcuOTUzNzUgMjEuNSwyMy42NjY2N2MwLDE1LjcxMjkxIC03LjIyMTUsMjMuNjY2NjcgLTIxLjUsMjMuNjY2NjdzLTIxLjUsLTcuOTUzNzUgLTIxLjUsLTIzLjY2NjY3YzAsLTE1LjcxMjkxIDcuMjU5MTcsLTIzLjY2NjY3IDIxLjUsLTIzLjY2NjY3eiI+PC9wYXRoPjwvZz48L2c+PC9zdmc+)
+<p align="center">
+  <img src="https://img.shields.io/badge/language-Bash-blue.svg" alt="Bahasa">
+  <img src="https://img.shields.io/badge/platform-Linux-yellow.svg" alt="Platform">
+  <img src="https://img.shields.io/badge/status-Selesai-brightgreen" alt="Status">
+</p>
 
-Skrip ini dibuat untuk memenuhi asesmen mata kuliah **SISTEM OPERASI IT 06-01** di Telkom University Surabaya. Saya memilih 2 dari 6 menu opsional yang tersedia, yaitu informasi jaringan dan informasi pengguna. Secara keseluruhan, skrip ini berfungsi sebagai alat interaktif untuk menampilkan data sistem secara ringkas dan jelas.
+<p align="center">
+  Sebuah skrip Bash interaktif yang dirancang untuk menampilkan berbagai informasi penting tentang sistem operasi Linux. 
+  <br />
+  Proyek ini merupakan bagian dari tugas mata kuliah Sistem Operasi.
+</p>
 
 ---
 
-## 🚀 Cara Penggunaan
+### **Daftar Isi**
 
-1.  **Berikan izin eksekusi**: `chmod +x tubes.sh`
-2.  **Jalankan**: `./tubes.sh`
-3.  Pilih menu yang tersedia pada antarmuka.
+1. [Identitas](#identitas-zap)
+2. [Gambaran Singkat Program](#gambaran-singkat-program-mag)
+3. [Fitur Program](#fitur-program-rocket)
+4. [Catatan Penggunaan](#catatan-penggunaan-warning)
+5. [Tools yang Digunakan](#tools-yang-digunakan-hammer_and_wrench)
+6. [Kesimpulan](#kesimpulan-memo)
 
 ---
 
-### 🎨 Fungsi: `tampilkan_judul()`
-Fungsi ini bertanggung jawab untuk mencetak judul yang menarik di setiap halaman menu.
+### **Identitas** <a name="identitas-zap"></a>
 
--   **Output Informasi:**
-    -   Judul halaman artistik menggunakan `figlet` (jika terinstal).
-    -   Judul teks biasa yang rapi dan berada di tengah layar (jika `figlet` tidak ada).
+|                 |                                             |
+| --------------- | ------------------------------------------- |
+| **Nama** | Kadek Gandhi Wahyu Jaya Suastika            |
+| **Program Studi** | Teknologi Informasi (06-01)                 |
+| **NIM** | 1202230017                                  |
 
-<details>
-<summary><strong>Lihat Penjelasan Kode</strong></summary>
+---
 
--   **Penjelasan Singkat Kode:**
-    -   `command -v figlet` digunakan untuk memeriksa ketersediaan `figlet`.
-    -   Jika tidak ada, `tput cols` akan mengambil lebar terminal, lalu `printf` menghitung *padding* agar teks judul menjadi rata tengah secara manual.
-</details>
+### **Gambaran Singkat Program** <a name="gambaran-singkat-program-mag"></a>
 
-### 🌐 Fungsi: `informasi_jaringan()`
-Menampilkan semua informasi yang relevan terkait konfigurasi dan status jaringan.
+> Skrip ini adalah sebuah *dashboard* berbasis terminal yang menyediakan akses cepat ke berbagai metrik dan data sistem. Dengan antarmuka menu yang mudah dinavigasi, pengguna dapat melihat informasi mulai dari sapaan selamat datang, detail jaringan, status sistem operasi, hingga informasi pengguna, semuanya disajikan dalam tabel yang rapi dan berwarna untuk keterbacaan yang lebih baik.
 
--   **Output Informasi:**
-    -   **Status Koneksi Internet**: Menampilkan "Terhubung" atau "Putus / Tidak Terhubung".
-    -   **Alamat IP Lokal**: Daftar semua alamat IPv4 yang aktif (`wlan0`, `eth0`, dll).
-    -   **Gateway Utama**: Alamat IP dari *gateway default*.
-    -   **Server DNS**: Daftar alamat IP server DNS yang digunakan.
-    -   **IP Publik**: Alamat IP publik Anda yang terlihat di internet.
-    -   **Info Lokasi**: Detail geolokasi (Kota, Wilayah, Negara, ISP, Zona Waktu) berdasarkan IP publik.
+---
 
-<details>
-<summary><strong>Lihat Penjelasan Kode</strong></summary>
+### **Fitur Program** <a name="fitur-program-rocket"></a>
 
--   **Penjelasan Singkat Kode:**
-    -   **Koneksi**: Mengirim `ping -c 1` ke `8.8.8.8` dan `1.1.1.1` sebagai cadangan.
-    -   **IP Lokal**: Mengurai output `ip -4 addr show scope global` menggunakan `awk` dan `sed`.
-    -   **Gateway**: Menyaring `ip route | grep '^default'` untuk menemukan *gateway*.
-    -   **DNS**: Membaca file `/etc/resolv.conf` dengan `grep`.
-    -   **IP Publik**: Menggunakan `curl` atau `wget` ke layanan online seperti `api.ipify.org`.
-    -   **Lokasi**: Melakukan kueri ke API `ipinfo.io`, dengan *fallback* ke `ip-api.com` jika gagal. Hasilnya diurai dengan `grep` atau `awk`.
-</details>
+Berikut adalah penjelasan untuk setiap menu yang tersedia dalam program ini:
 
-### 👤 Fungsi: `informasi_user()`
-Menampilkan data detail mengenai pengguna yang sedang menjalankan skrip.
+#### **1. 👋 Greeting User**
+Menu ini memberikan sapaan hangat kepada pengguna yang disesuaikan dengan waktu (Pagi, Siang, Sore, Malam). Selain itu, menu ini juga menampilkan rangkuman informasi dasar seperti tanggal, waktu, dan info kalender dalam format tabel yang jelas.
 
--   **Output Informasi:**
-    -   **Info Dasar**: Nama pengguna, UID, GID utama, dan daftar grup.
-    -   **Direktori & Shell**: Path ke direktori `home` dan *shell login* default.
-    -   **Sesi Aktif**: Informasi sesi terminal yang sedang berjalan dari perintah `w`.
-    -   **Riwayat Login**: 5 entri riwayat login terakhir dari perintah `last`.
-    -   **Penggunaan Disk**: Total ukuran penyimpanan direktori `home` pengguna.
+> *\[Tempat untuk gambar menu Greeting User\]*
 
-<details>
-<summary><strong>Lihat Penjelasan Kode</strong></summary>
+#### **2. 📁 Info Daftar Direktori**
+Fitur ini berfungsi seperti perintah `ls -l` yang ditingkatkan. Ia menampilkan seluruh isi dari direktori tempat skrip dijalankan dalam sebuah tabel detail, lengkap dengan hak akses, pemilik, ukuran, tanggal modifikasi, dan nama file/direktori. Direktori dan file yang bisa dieksekusi diberi warna berbeda untuk identifikasi yang lebih mudah.
 
--   **Penjelasan Singkat Kode:**
-    -   **Info Dasar**: Menggunakan perintah `id`, `groups`, dan variabel lingkungan seperti `$HOME` dan `$SHELL`.
-    -   **Sesi Aktif**: Menjalankan `w $CURRENT_USER` untuk melihat sesi aktif.
-    -   **Riwayat Login**: Menjalankan `last -n 5 $CURRENT_USER` untuk menyaring log sistem.
-    -   **Penggunaan Disk**: Menjalankan `du -sh "$HOME"` untuk kalkulasi ringkas.
-</details>
+> *\[Tempat untuk gambar menu Info Daftar Direktori\]*
 
-### 🔄 Program Utama (Loop Menu)
-Bagian ini mengontrol alur program dan interaksi pengguna.
+#### **3. 🌐 Info Jaringan**
+Ini adalah menu paling komprehensif untuk analisis jaringan. Fitur ini menampilkan:
+* Status koneksi internet (terhubung atau tidak).
+* Detail IP Publik, lengkap dengan perkiraan lokasi geografis (Kota, Wilayah, Negara), kode pos, zona waktu, dan nama ISP.
+* Daftar semua alamat IP lokal beserta Netmask/CIDR-nya.
+* Status detail setiap *interface* jaringan (UP/DOWN), kecepatan link, dan alamat MAC.
 
--   **Output Informasi:**
-    -   Menu utama dengan pilihan yang jelas (Info Jaringan, Info User, Exit).
-    -   Prompt untuk input pengguna.
-    -   Pesan kesalahan jika input tidak valid.
+> *\[Tempat untuk gambar menu Info Jaringan\]*
 
-<details>
-<summary><strong>Lihat Penjelasan Kode</strong></summary>
+#### **4. 💻 Info OS**
+Menampilkan rangkuman teknis dari sistem operasi yang sedang berjalan. Informasi yang disajikan meliputi nama distro, versi kernel, arsitektur, penggunaan CPU *real-time* (user, system, idle), serta tabel penggunaan Memori (RAM) dan Swap.
 
--   **Penjelasan Singkat Kode:**
-    -   `while true` menciptakan sebuah *loop* tak terbatas agar program terus berjalan.
-    -   `case $pilihan in ... esac` mengevaluasi input pengguna untuk memanggil fungsi yang sesuai atau keluar dari program.
-    -   `read -n 1 -s -r -p "..."` digunakan untuk menjeda skrip, menunggu pengguna menekan tombol sebelum kembali ke menu utama.
-</details>
+> *\[Tempat untuk gambar menu Info OS\]*
+
+#### **5. ⏳ Waktu Install OS**
+Fitur unik yang mencoba mendeteksi kapan sistem operasi ini pertama kali diinstal. Skrip akan mencoba beberapa metode, seperti memeriksa log installer atau waktu pembuatan partisi, untuk memberikan perkiraan tanggal instalasi yang akurat. Selain itu, menu ini juga menampilkan waktu boot terakhir dan durasi sistem telah berjalan (*uptime*).
+
+> *\[Tempat untuk gambar menu Waktu Install OS\]*
+
+#### **6. 👤 Info User**
+Menyediakan semua detail terkait pengguna yang sedang login, termasuk nama pengguna, UID, GID, daftar grup, direktori home, shell yang digunakan, dan total penggunaan disk pada direktori `/home`. Menu ini juga menampilkan sesi login yang sedang aktif dan 5 riwayat login terakhir.
+
+> *\[Tempat untuk gambar menu Info User\]*
+
+---
+
+### **Catatan Penggunaan** <a name="catatan-penggunaan-warning"></a>
+
+Untuk menjalankan skrip ini dengan benar, ikuti langkah-langkah berikut:
+
+1.  **Pastikan berada di lingkungan terminal Linux.**
+2.  **Berikan izin eksekusi** pada file skrip dengan perintah berikut:
+    ```bash
+    chmod +x nama_file_skrip_anda.sh
+    ```
+3.  **Pastikan `curl` dan `figlet` sudah terinstal** agar semua fitur dapat berjalan optimal.
+    <details>
+    <summary>Klik untuk melihat perintah instalasi</summary>
+    
+    ```bash
+    # Untuk sistem berbasis Debian/Ubuntu
+    sudo apt update && sudo apt install curl figlet
+
+    # Untuk sistem berbasis Fedora/CentOS
+    sudo dnf install curl figlet
+    ```
+    </details>
+
+4.  **Jalankan skrip:**
+    ```bash
+    ./nama_file_skrip_.sh
+    ```
+    #atau bisa juga
+    bash + nama_file_skrip_.sh
+---
+
+### **Tools yang Digunakan** <a name="tools-yang-digunakan-hammer_and_wrench"></a>
+
+Skrip ini memanfaatkan beberapa *command-line tools* bawaan Linux untuk mengumpulkan data:
+
+* `figlet`: Untuk membuat variasi teks ASCII pada judul.
+* `curl`: Untuk mengambil data IP publik dan informasi lokasi dari API eksternal.
+* `nmcli`: Untuk mendapatkan status koneksi yang dikelola oleh NetworkManager.
+* `ip`: Utilitas modern untuk menampilkan dan memanipulasi informasi jaringan.
+* `stat`, `df`, `free`: Perintah standar untuk mendapatkan metadata file, status disk, dan penggunaan memori.
+* `uptime`, `last`, `w`: Untuk mendapatkan informasi waktu aktif, riwayat, dan sesi login pengguna.
+
+---
+
+### **Kesimpulan** <a name="kesimpulan-memo"></a>
+
+Program ini menunjukkan bagaimana *shell scripting* Bash dapat digunakan untuk membuat alat bantu sistem yang fungsional, informatif, dan menarik secara visual. Dengan menggabungkan berbagai perintah Linux dan memformat outputnya, skrip ini menjadi sebuah *dashboard* mini yang sangat berguna untuk memantau kondisi sistem secara cepat dan efisien.
+
+IT SOLID!
+
+<p align="right"><a href="#top">Kembali ke atas ↑</a></p>
