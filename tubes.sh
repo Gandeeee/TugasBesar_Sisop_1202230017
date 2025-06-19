@@ -160,121 +160,72 @@ sapa_pengguna() {
 
 # FUNGSI: informasi_jaringan
 # TUJUAN: Menampilkan rangkuman lengkap mengenai status dan konfigurasi jaringan
-#         Mulai dari koneksi internet, detail interface, hingga IP publik dan lokal
+#         Mencakup koneksi internet, detail interface, IP publik, lokasi, dan netmask
+# Pastikan sudah terinstall curl di linux supaya lokasi ip (kota) terbaca di kodeb bash
+
 # Fungsi untuk menampilkan informasi jaringan
 informasi_jaringan() {
     # Membersihkan layar dan menampilkan judul untuk bagian ini
     clear
     tampilkan_judul "Info Jaringan"
-    # Mencetak garis pembatas atas
-    echo -e "${DIM}=====================================================================${NC}"
-    
-    # Bagian 1: Melakukan pengecekan koneksi internet secara cepat
-    # Mencetak label status
+    echo -e "<span class="math-inline">\{DIM\}\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=</span>{NC}"
+
+    # --- Bagian 1: Pengecekan Koneksi Internet ---
+    # Langkah pertama yang paling penting, memeriksa apakah ada koneksi ke internet
     printf "%-30s: " "Status Koneksi Internet"
-    # Melakukan ping ke server DNS Google atau Cloudflare sebagai target
-    # -c 1 untuk mengirim satu paket saja, -W 1 untuk timeout 1 detik agar tidak lama menunggu
-    # Tanda '||' berarti jika ping pertama gagal, coba ping kedua
-    # '&> /dev/null' digunakan untuk menyembunyikan semua output dari perintah ping
     if ping -c 1 -W 1 8.8.8.8 &> /dev/null || ping -c 1 -W 1 1.1.1.1 &> /dev/null; then
-        # Jika salah satu ping berhasil, tampilkan status terhubung
-        echo -e "${BRIGHT_GREEN}✔ Terhubung${NC}"
+        echo -e "<span class="math-inline">\{BRIGHT\_GREEN\}✔ Terhubung</span>{NC}"
     else
-        # Jika keduanya gagal, tampilkan status putus
-        echo -e "${BRIGHT_RED}❌ Putus / Tidak Terhubung${NC}"
+        echo -e "<span class="math-inline">\{BRIGHT\_RED\}❌ Putus / Tidak Terhubung</span>{NC}"
     fi
     echo ""
 
-    # Bagian 2: Menampilkan status detail untuk setiap koneksi seperti Wi-Fi atau LAN
-    # Mencetak sub-judul untuk bagian ini
-    echo -e "${YELLOW}--- Status Koneksi LAN / Wi-Fi ---${NC}"
-    # Memeriksa apakah perintah 'nmcli' (NetworkManager) ada di sistem
+    # --- Bagian 2: Status Koneksi LAN/WiFi via NetworkManager ---
+    # Bagian ini menampilkan detail dari setiap interface yang dikelola oleh nmcli
+    echo -e "<span class="math-inline">\{YELLOW\}\-\-\- Status Koneksi LAN / Wi\-Fi \-\-\-</span>{NC}"
     if command -v nmcli &> /dev/null; then
-        # Jika ada, saya akan gunakan untuk menampilkan tabel status koneksi
-        local table_line="${DIM}+-----------------+------------+---------------+--------------------------+${NC}"
+        local table_line="<span class="math-inline">\{DIM\}\+\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\+\-\-\-\-\-\-\-\-\-\-\-\-\+\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\+\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\+</span>{NC}"
         echo -e "$table_line"
-        printf "| ${BOLD}%-15s${NC} | ${BOLD}%-10s${NC} | ${BOLD}%-13s${NC} | ${BOLD}%-24s${NC} |\n" "DEVICE" "TYPE" "STATE" "CONNECTION"
+        printf "| <span class="math-inline">\{BOLD\}%\-15s</span>{NC} | <span class="math-inline">\{BOLD\}%\-10s</span>{NC} | <span class="math-inline">\{BOLD\}%\-13s</span>{NC} | <span class="math-inline">\{BOLD\}%\-24s</span>{NC} |\n" "DEVICE" "TYPE" "STATE" "CONNECTION"
         echo -e "$table_line"
-        # Mengambil data dari nmcli, membuang baris 'loopback', dan memprosesnya baris per baris
         nmcli -t -f DEVICE,TYPE,STATE,CONNECTION dev status | grep -v 'loopback' | while IFS=: read -r device type state connection; do
-            # Jika nama koneksi kosong, ganti dengan '--'
-            if [[ -z "$connection" ]]; then connection="--"; fi
-            # Logika untuk memberi warna pada status koneksi
+            # Mengganti string kosong dengan '--' agar lebih rapi
+            [[ -z "$connection" ]] && connection="--"
+            # Memberi warna pada status: hijau untuk 'connected', merah untuk lainnya
             local state_color="$NC"
-            if [[ "$state" == "connected" ]]; then state_color="${GREEN}"; elif [[ "$state" == "disconnected" ]]; then state_color="${RED}"; fi
-            # Mencetak baris data ke dalam tabel
-            printf "| ${CYAN}%-15s${NC} | %-10s | ${state_color}%-13s${NC} | ${BRIGHT_GREEN}%-24s${NC} |\n" "$device" "$type" "$state" "$connection"
+            [[ "<span class="math-inline">state" \=\= "connected" \]\] && state\_color\="</span>{GREEN}"
+            [[ "<span class="math-inline">state" \=\= "disconnected" \]\] && state\_color\="</span>{RED}"
+            printf "| <span class="math-inline">\{CYAN\}%\-15s</span>{NC} | %-10s | <span class="math-inline">\{state\_color\}%\-13s</span>{NC} | <span class="math-inline">\{BRIGHT\_GREEN\}%\-24s</span>{NC} |\n" "$device" "$type" "$state" "$connection"
         done
-        echo -e "$table_line"
-    else
-        # Jika 'nmcli' tidak ada, tampilkan pesan informasi
-        echo -e "${RED}Perintah 'nmcli' tidak ditemukan. Fitur ini memerlukan NetworkManager.${NC}"
+        echo -e "<span class="math-inline">table\_line"
+else
+\# Pesan jika nmcli tidak ditemukan
+echo \-e "</span>{RED}Perintah 'nmcli' tidak ditemukan. Fitur ini memerlukan NetworkManager${NC}"
     fi
     echo ""
 
-    # Bagian 3: Mengambil dan menampilkan data konfigurasi umum dan info IP Publik
-    # Mengambil alamat Gateway dari routing table
+    # --- Bagian 3: Mengumpulkan Informasi Konfigurasi Dasar dan IP Publik ---
+    # Mengambil Gateway dan server DNS dari konfigurasi sistem
     local GATEWAY=$(ip route | grep '^default' | awk '{print $3}')
-    # Membaca semua server DNS dari file /etc/resolv.conf
-    readarray -t DNS_SERVERS < <(grep "^nameserver" /etc/resolv.conf 2>/dev/null | awk '{print $2}')
-    # Mengambil alamat IP Publik dari layanan eksternal
-    local PUBLIC_IP
-    if command -v curl &> /dev/null; then PUBLIC_IP=$(curl -s --max-time 5 api.ipify.org); fi
-    # Menyiapkan variabel untuk informasi lokasi geografis dari IP Publik
-    local CITY="N/A" REGION="N/A" COUNTRY="N/A" ORG="N/A"
-    # Jika IP Publik berhasil didapatkan, lanjutkan mengambil info lokasi
-    if [[ -n "$PUBLIC_IP" ]]; then
-        # Mengambil data lokasi dalam format JSON dari ipinfo.io
-        # Token API bisa ditambahkan untuk request yang lebih banyak
-        LOCATION_INFO_JSON=$(curl -s --max-time 7 "ipinfo.io/$PUBLIC_IP?token=YOUR_IPINFO_TOKEN")
-        # Mem-parsing data JSON dengan grep untuk mendapatkan info spesifik
-        CITY=$(echo "$LOCATION_INFO_JSON" | grep -oP '"city":\s*"\K[^"]*')
-        REGION=$(echo "$LOCATION_INFO_JSON" | grep -oP '"region":\s*"\K[^"]*')
-        COUNTRY=$(echo "$LOCATION_INFO_JSON" | grep -oP '"country":\s*"\K[^"]*')
-        ORG=$(echo "$LOCATION_INFO_JSON" | grep -oP '"org":\s*"\K[^"]*')
+    readarray -t DNS_SERVERS < <(grep "^nameserver" /etc/resolv.conf 2>/dev/null | awk '{print <span class="math-inline">2\}'\)
+\# Mencoba mengambil IP Publik dari beberapa layanan secara bergantian untuk keandalan
+local PUBLIC\_IP\=""
+if command \-v curl &\> /dev/null; then 
+\# Coba layanan pertama, jika gagal \(ditandai oleh '\|\|'\), coba layanan berikutnya
+PUBLIC\_IP\=</span>(curl -s --max-time 5 api.ipify.org) || \
+        PUBLIC_IP=<span class="math-inline">\(curl \-s \-\-max\-time 5 ifconfig\.me\) \|\| \\
+PUBLIC\_IP\=</span>(curl -s --max-time 5 checkip.amazonaws.com | tr -d '\n')
     fi
 
-    # Menampilkan data yang sudah terkumpul di atas ke dalam tabel
-    echo -e "${YELLOW}--- Konfigurasi Umum & IP Publik ---${NC}"
-    local config_line="${DIM}+-------------------------+------------------------------------------+${NC}"
-    echo -e "$config_line"
-    printf "| ${BOLD}%-23s${NC} | ${BOLD}%-40s${NC} |\n" "INFORMASI" "DETAIL"
-    echo -e "$config_line"
-    # Menggunakan ":-Tidak Ditemukan" sebagai nilai default jika variabel GATEWAY kosong
-    printf "| %-23s | ${CYAN}%-40s${NC} |\n" "Gateway Utama" "${GATEWAY:-Tidak Ditemukan}"
-    # Looping untuk menampilkan semua server DNS yang ditemukan
-    local i=1
-    for dns in "${DNS_SERVERS[@]}"; do
-        printf "| %-23s | ${CYAN}%-40s${NC} |\n" "DNS Server $i" "$dns"
-        i=$((i+1))
-    done
-    printf "| %-23s | ${BRIGHT_GREEN}%-40s${NC} |\n" "IP Publik" "${PUBLIC_IP:-Tidak Terhubung}"
-    printf "| %-23s | ${CYAN}%-40s${NC} |\n" "Kota / Negara" "${CITY:-N/A} / ${COUNTRY:-N/A}"
-    printf "| %-23s | ${CYAN}%-40s${NC} |\n" "Wilayah" "${REGION:-N/A}"
-    printf "| %-23s | ${CYAN}%-40s${NC} |\n" "Provider/Organisasi" "${ORG:-N/A}"
-    echo -e "$config_line"
-    echo ""
-
-    # Bagian 4: Menampilkan tabel berisi semua alamat IP lokal (IPv4)
-    echo -e "${YELLOW}--- Alamat IP Lokal (IPv4) ---${NC}"
-    local ip_table_line="${DIM}+-----------------+------------------+${NC}"
-    echo -e "$ip_table_line"
-    printf "| ${BOLD}%-15s${NC} | ${BOLD}%-16s${NC} |\n" "INTERFACE" "ALAMAT IP"
-    echo -e "$ip_table_line"
-    # Mengambil daftar alamat IP, lalu memprosesnya satu per satu
-    ip -4 addr show scope global | awk '/inet / {print $NF, $2}' | while read -r interface ip_cidr; do
-        # Menghilangkan bagian CIDR (contoh: /24) dari alamat IP
-        local ip_clean=$(echo "$ip_cidr" | sed 's|/.*||')
-        # Mencetak interface dan alamat IP bersih ke dalam tabel
-        printf "| ${CYAN}%-15s${NC} | ${GREEN}%-16s${NC} |\n" "$interface" "$ip_clean"
-    done
-    echo -e "$ip_table_line"
-    
-    # Mencetak garis pembatas bawah
-    echo -e "${DIM}=====================================================================${NC}"
-    echo ""
-}
-
+    # --- Bagian 4: Mengambil Informasi Lokasi berdasarkan IP Publik ---
+    # Bagian ini hanya berjalan jika IP Publik berhasil didapatkan
+    local CITY="N/A" REGION="N/A" COUNTRY="N/A" ORG="N/A" TIMEZONE="N/A" POSTAL="N/A"
+    if [[ -n "<span class="math-inline">PUBLIC\_IP" \]\]; then
+\# Menampilkan pesan status karena proses ini mungkin memakan waktu
+echo \-e "</span>{DIM}Mengambil informasi lokasi...<span class="math-inline">\{NC\}"
+\# Mencoba layanan ipinfo\.io terlebih dahulu
+local LOCATION\_INFO\_JSON\=</span>(curl -s --max-time 10 "https://ipinfo.io/$PUBLIC_IP/json")
+        # Jika ipinfo.io gagal atau mengembalikan error, coba layanan cadangan ip-api
 # FUNGSI: daftar_direktori
 # TUJUAN: Menampilkan isi dari direktori saat ini dalam format tabel yang detail
 #         Mirip seperti perintah 'ls -l', tapi dengan tampilan yang lebih rapi dan berwarna
